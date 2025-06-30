@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planos de Orçamento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#FFD700',
+            silver: '#C0C0C0',
+            iron: '#A19D94',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .plan-card {
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .gold-plan {
+      border-top: 5px solid #FFD700;
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+    }
+    .silver-plan {
+      border-top: 5px solid #C0C0C0;
+      background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+    }
+    .iron-plan {
+      border-top: 5px solid #A19D94;
+      background: linear-gradient(135deg, #E5E4E2 0%, #FFFFFF 100%);
+    }
+    .badge {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .feature-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 10px;
+    }
+    .feature-list li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 15px;
+      height: 15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .feature-list li.checked:before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%232ecc71" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+    }
+    .feature-list li.unchecked:before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23e74c3c" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>');
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl">
+        Escolha o Plano Perfeito
+      </h1>
+      <p class="mt-5 max-w-xl mx-auto text-xl text-gray-500">
+        Nossos planos são projetados para atender todas as suas necessidades.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Ferro -->
+      <div class="plan-card iron-plan rounded-lg p-8 relative">
+        <div class="badge bg-gray-600 text-white">Ferramentas Básicas</div>
+        <div class="text-center mb-8">
+          <img src="https://placehold.co/300x200" alt="Ferramentas básicas" class="w-full h-auto rounded-lg mb-6" />
+          <h3 class="text-2xl font-bold text-gray-800">Plano Ferro</h3>
+          <p class="text-gray-600 mt-2">Ideal para começar</p>
+          <div class="mt-6">
+            <span class="text-4xl font-bold text-gray-800">R$ 29</span>
+            <span class="text-gray-600">/mês</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li class="checked">10 projetos ativos</li>
+          <li class="checked">Até 3 membros</li>
+          <li class="checked">Suporte básico</li>
+          <li class="unchecked">Relatórios avançados</li>
+          <li class="unchecked">Integração com APIs</li>
+        </ul>
+        <button class="mt-8 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+          Assinar Plano
+        </button>
+      </div>
+
+      <!-- Prata -->
+      <div class="plan-card silver-plan rounded-lg p-8 relative">
+        <div class="badge bg-gray-400 text-gray-800">Mais Popular</div>
+        <div class="text-center mb-8">
+          <img src="https://placehold.co/300x200" alt="Plano prata" class="w-full h-auto rounded-lg mb-6" />
+          <h3 class="text-2xl font-bold text-gray-800">Plano Prata</h3>
+          <p class="text-gray-600 mt-2">Para pequenas empresas</p>
+          <div class="mt-6">
+            <span class="text-4xl font-bold text-gray-800">R$ 79</span>
+            <span class="text-gray-600">/mês</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li class="checked">50 projetos ativos</li>
+          <li class="checked">Até 10 membros</li>
+          <li class="checked">Suporte prioritário</li>
+          <li class="checked">Relatórios básicos</li>
+          <li class="unchecked">Integração com APIs</li>
+        </ul>
+        <button class="mt-8 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+          Assinar Plano
+        </button>
+      </div>
+
+      <!-- Ouro -->
+      <div class="plan-card gold-plan rounded-lg p-8 relative">
+        <div class="badge bg-yellow-500 text-white">Solução Completa</div>
+        <div class="text-center mb-8">
+          <img src="https://placehold.co/300x200" alt="Plano ouro" class="w-full h-auto rounded-lg mb-6" />
+          <h3 class="text-2xl font-bold text-gray-800">Plano Ouro</h3>
+          <p class="text-gray-600 mt-2">Para grandes negócios</p>
+          <div class="mt-6">
+            <span class="text-4xl font-bold text-gray-800">R$ 159</span>
+            <span class="text-gray-600">/mês</span>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li class="checked">Projetos ilimitados</li>
+          <li class="checked">Membros ilimitados</li>
+          <li class="checked">Suporte 24/7</li>
+          <li class="checked">Relatórios avançados</li>
+          <li class="checked">Integração com APIs</li>
+        </ul>
+        <button class="mt-8 w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+          Assinar Plano
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6">Perguntas Frequentes</h2>
+      <div class="max-w-3xl mx-auto space-y-4">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg">Posso mudar de plano depois?</h3>
+          <p class="mt-2 text-gray-600">Sim, você pode mudar de plano a qualquer momento sem taxa adicional.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-lg">Há algum contrato de longo prazo?</h3>
+          <p class="mt-2 text-gray-600">Não, todos os nossos planos são mensais sem contrato de longo prazo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Botões interativos
+    document.querySelectorAll('.plan-card button').forEach(button => {
+      button.addEventListener('click', () => {
+        const planName = button.closest('.plan-card').querySelector('h3').textContent;
+        alert(`Você selecionou o ${planName}! Entraremos em contato para finalizar sua assinatura.`);
+      });
+    });
+  </script>
+</body>
+</html>
